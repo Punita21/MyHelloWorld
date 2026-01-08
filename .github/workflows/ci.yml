@@ -30,9 +30,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Push Image
-        run: |
-          docker tag myhelloworld:latest ${{ secrets.DOCKER_USERNAME }}/myhelloworld:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/myhelloworld:latest
+      - name: Build Docker image
+        run: docker build -t myhelloworld:latest .
 
+      - name: Tag Docker image
+        run: docker tag myhelloworld:latest ${{ secrets.DOCKER_USERNAME }}/myhelloworld:latest
+
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/myhelloworld:latest
 
