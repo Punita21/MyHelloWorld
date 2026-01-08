@@ -32,7 +32,7 @@ jobs:
 
       - name: Push Image
         run: |
-          docker tag job-service:latest ${{ secrets.DOCKER_USERNAME }}/job-service:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/job-service:latest
+          docker tag myhelloworld:latest ${{ secrets.DOCKER_USERNAME }}/myhelloworld:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/myhelloworld:latest
 
 
